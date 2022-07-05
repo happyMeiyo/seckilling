@@ -1,6 +1,7 @@
 package com.miaosha.project.controller;
 
 import com.miaosha.project.controller.viewObject.UserVO;
+import com.miaosha.project.response.CommonReturnType;
 import com.miaosha.project.service.UserService;
 import com.miaosha.project.service.model.UserModel;
 import org.springframework.beans.BeanUtils;
@@ -24,10 +25,12 @@ public class UserController {
 
     @RequestMapping("/get")
     @ResponseBody
-    public UserVO getUser(@RequestParam(name="id") Integer id){
+    public CommonReturnType getUser(@RequestParam(name="id") Integer id){
         UserModel userModel = userService.getUserById(id);
 
-        return convertFromModel(userModel);
+        UserVO userVO = convertFromModel(userModel);
+
+        return CommonReturnType.create(userVO);
     }
 
     private UserVO convertFromModel(UserModel userModel){
