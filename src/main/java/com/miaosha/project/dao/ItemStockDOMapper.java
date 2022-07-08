@@ -41,6 +41,9 @@ public interface ItemStockDOMapper {
      *
      * @mbg.generated Fri Jul 08 12:11:59 CST 2022
      */
+
+    ItemStockDO selectByItemId(Integer itemId);
+
     int updateByPrimaryKeySelective(ItemStockDO row);
 
     /**

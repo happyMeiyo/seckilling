@@ -23,4 +23,6 @@ public class CommonReturnType {
 
         return type;
     }
+
+
 }
