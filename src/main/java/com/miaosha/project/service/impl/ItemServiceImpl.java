@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Author: my.deng@tuya.com
@@ -38,8 +39,7 @@ public class ItemServiceImpl implements ItemService {
     @Transactional
     public ItemModel createItem(ItemModel itemModel) throws BusinessException {
         ValidationResult validationResult = validator.validate(itemModel);
-        if(validationResult.isHasErrors())
-        {
+        if (validationResult.isHasErrors()) {
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, validationResult.getErrorMsg());
         }
 
@@ -59,13 +59,20 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<ItemModel> listItem() {
-        return null;
+        List<ItemDO> itemDOList = itemDOMapper.listItem();
+        return itemDOList.stream().map(itemDO -> {
+            ItemStockDO itemStockDO = itemStockDOMapper.selectByItemId(itemDO.getId());
+            ItemModel itemModel = new ItemModel();
+            BeanUtils.copyProperties(itemDO, itemModel);
+            itemModel.setStock(itemStockDO.getStock());
+            return itemModel;
+        }).collect(Collectors.toList());
     }
 
     @Override
     public ItemModel getItemById(Integer id) {
         ItemDO itemDO = itemDOMapper.selectByPrimaryKey(id);
-        if(itemDO == null){
+        if (itemDO == null) {
             return null;
         }
 

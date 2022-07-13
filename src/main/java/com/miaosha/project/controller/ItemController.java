@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Author: my.deng@tuya.com
@@ -57,5 +59,19 @@ public class ItemController extends BaseController{
         ItemVO itemVO = new ItemVO();
         BeanUtils.copyProperties(itemModel, itemVO);
         return CommonReturnType.create(itemVO);
+    }
+
+    @GetMapping("/list")
+    @ResponseBody
+    public CommonReturnType listItem(){
+        List<ItemModel> itemModelList = itemService.listItem();
+
+        List<ItemVO> itemVOList = itemModelList.stream().map(itemModel -> {
+            ItemVO itemVO = new ItemVO();
+            BeanUtils.copyProperties(itemModel, itemVO);
+            return itemVO;
+        }).collect(Collectors.toList());
+
+        return CommonReturnType.create(itemVOList);
     }
 }
