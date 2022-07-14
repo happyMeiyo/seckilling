@@ -7,8 +7,11 @@ package com.miaosha.project.error;
 public enum EmBusinessError implements CommonError {
     PARAMETER_VALIDATION_ERROR(10001, "参数不合法"),
     UNKNOWN_ERROR(10002, "未知错误"),
+
     USER_NOT_EXIST(20001, "用户不存在"),
-    USER_LOGIN_FAIL(20002, "用户登录失败");
+    USER_LOGIN_FAIL(20002, "用户登录失败"),
+
+    STOCK_NOT_ENOUGH(30001,"用户登录失败");
 
     private final int errCode;
     private String errMsg;

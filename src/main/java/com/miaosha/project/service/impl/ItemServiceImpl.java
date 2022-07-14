@@ -84,4 +84,10 @@ public class ItemServiceImpl implements ItemService {
 
         return itemModel;
     }
+
+    @Override
+    public boolean decreaseStock(Integer itemId, Integer amount) throws BusinessException {
+        int affectedRow = itemStockDOMapper.decreaseStock(itemId, amount);
+        return affectedRow > 0;
+    }
 }
