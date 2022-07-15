@@ -56,5 +56,5 @@ public interface ItemDOMapper {
      */
     int updateByPrimaryKey(ItemDO row);
 
-    int increaseSales(@Param("id")Integer id, @Param("amount")Integer amount);
+    int increaseSales(@Param("itemId")Integer itemId, @Param("amount")Integer amount);
 }

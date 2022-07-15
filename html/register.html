@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Access-Control-Allow-Origin", content="*">
 	<title>用户注册</title>
 
 	<link rel="stylesheet" type="text/css" href="static/assets/global/plugins/bootstrap/css/bootstrap.min.css">
@@ -74,23 +73,23 @@
 			var otpCode = $("#otpCode").val();
 
 
-			if(telephone == null || telephone == ""){
+			if(telephone == null || telephone === ""){
 				alert("手机号不能为空");
 				return false;
 			}
-			if(name == null || name == ""){
+			if(name == null || name === ""){
 				alert("姓名不能为空");
 				return false;
 			}
-			if(age == null || age == ""){
+			if(age == null || age === ""){
 				alert("年龄不能为空");
 				return false;
 			}
-			if(password == null || password == ""){
+			if(password == null || password === ""){
 				alert("密码不能为空");
 				return false;
 			}
-			if(otpCode == null || otpCode == ""){
+			if(otpCode == null || otpCode === ""){
 				alert("验证码不能为空");
 				return false;
 			}
@@ -109,7 +108,7 @@
 					"otpCode":otpCode
 				},
 				success:function(data){
-					if(data.status == "success"){
+					if(data.status === "success"){
 						alert("注册成功");
 					}else{
 						alert("注册失败，原因为" + data.data.errMsg);

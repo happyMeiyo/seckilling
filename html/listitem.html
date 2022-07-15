@@ -2,9 +2,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Access-Control-Allow-Origin", content="*">
 	<title>商品列表</title>
-
 	<link rel="stylesheet" type="text/css" href="static/assets/global/plugins/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="static/assets/global/css/components.css">
 	<link rel="stylesheet" type="text/css" href="static/assets/admin/pages/css/login.css">
@@ -45,7 +43,7 @@
 			url: "http://localhost:8090/item/list",
 			xhrFields: {withCredentials: true},
 			success: function (data) {
-				if (data.status == "success") {
+				if (data.status === "success") {
 					g_itemList = data.data;
 					reloadDom();
 				} else {

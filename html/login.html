@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Access-Control-Allow-Origin", content="*">
 	<title>用户登录</title>
 
 	<link rel="stylesheet" type="text/css" href="static/assets/global/plugins/bootstrap/css/bootstrap.min.css">
@@ -47,14 +46,11 @@
 		$("#login").on("click", function(){
 			var telephone = $("#telephone").val();
 			var password = $("#password").val();
-
-
-
-			if(telephone == null || telephone == ""){
+			if(telephone == null || telephone === ""){
 				alert("手机号不能为空");
 				return false;
 			}
-			if(password == null || password == ""){
+			if(password == null || password === ""){
 				alert("密码不能为空");
 				return false;
 			}
@@ -69,7 +65,7 @@
 					"password":password
 				},
 				success:function(data){
-					if(data.status == "success"){
+					if(data.status === "success"){
 						alert("登录成功");
 						window.location.href='listitem.html';
 					}else{
