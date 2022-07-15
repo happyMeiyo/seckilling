@@ -77,6 +77,8 @@ public class OrderServiceImpl implements OrderService {
         BeanUtils.copyProperties(orderModel, orderDO);
         orderDOMapper.insertSelective(orderDO);
 
+        itemService.increaseSales(itemId, amount);
+
         return orderModel;
     }
 

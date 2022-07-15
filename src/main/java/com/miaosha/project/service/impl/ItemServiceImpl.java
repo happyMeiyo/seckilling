@@ -90,4 +90,10 @@ public class ItemServiceImpl implements ItemService {
         int affectedRow = itemStockDOMapper.decreaseStock(itemId, amount);
         return affectedRow > 0;
     }
+
+    @Override
+    @Transactional
+    public void increaseSales(Integer itemId, Integer amount) {
+        itemDOMapper.increaseSales(itemId, amount);
+    }
 }

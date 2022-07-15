@@ -47,7 +47,7 @@
 				success:function(data){
 					if(data.status == "success"){
 						alert("otp发送成功，请查收");
-						window.location.href='file:///Users/tester/IdeaProjects/html/register.html';
+						window.location.href='register.html';
 					}else{
 						alert("otp发送失败，原因为" + data.data.errMsg);
 					}
