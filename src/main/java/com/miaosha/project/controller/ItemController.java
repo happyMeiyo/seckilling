@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * Date: 2022/7/8 14:13
  */
 
-@Controller("/item")
+@Controller("item")
 @CrossOrigin(originPatterns = "*", allowCredentials = "true", allowedHeaders = "*")
 @RequestMapping(value = "/item")
 public class ItemController extends BaseController{

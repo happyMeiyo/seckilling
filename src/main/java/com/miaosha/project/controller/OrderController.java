@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  * Author: my.deng@tuya.com
  * Date: 2022/7/15 09:56
  */
-@Controller
+@Controller("order")
 @CrossOrigin(originPatterns = "*", allowCredentials = "true", allowedHeaders = "*")
 @RequestMapping("/order")
 public class OrderController {
@@ -30,7 +30,8 @@ public class OrderController {
     @PostMapping("/create")
     @ResponseBody
     @Transactional
-    public CommonReturnType createOrder(@RequestParam(name = "itemId") Integer itemId, @RequestParam(name = "amount") Integer amount) throws BusinessException {
+    public CommonReturnType createOrder(@RequestParam(name = "itemId") Integer itemId,
+                                        @RequestParam(name = "amount") Integer amount) throws BusinessException {
         Boolean isLogin  = (Boolean) httpServletRequest.getSession().getAttribute("IS_LOGIN");
         if(isLogin == null || !isLogin)
         {
