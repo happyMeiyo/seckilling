@@ -23,10 +23,14 @@
 	</div>
 
 	<div class="form-group">
-		<label class="control-label">验证码</label>
-		<div>
-			<input class="form-control" type="text" name="otpCode" id="otpCode" placeholder="请输入验证码" >
+		<label class="control-label" style="float: left;width: 100%">验证码</label>
+		<div style="float: left; width: 65%">
+			<input class="form-control" type="text" name="otpCode" id="otpCode" placeholder="请输入验证码" />
 		</div>
+		<div style="float: right; width: 30%">
+			<button style="float: left" class="btn blue" id="getotp" type="submit">获取otp短信</button>
+		</div>
+
 	</div>
 
 	<div class="form-group">
@@ -64,6 +68,36 @@
 </body>
 <script type="text/javascript">
 	jQuery(document).ready(function() {
+		$("#getotp").on("click", function(){
+			let telephone = $("#telephone").val();
+			if(telephone == null || telephone === ""){
+				alert("手机号不能为空");
+				return false;
+			}
+			$.ajax({
+				xhrFields: {withCredentials: true},
+				crossDomain: true,
+				type:"POST",
+				contentType:"application/x-www-form-urlencoded",
+				url:"http://localhost:8090/user/getotp",
+				data:{
+					"telephone":$('#telephone').val(),
+				},
+				success:function(data){
+					if(data.status === "success"){
+						alert("otp发送成功，请查收");
+						window.location.href='register.html';
+					}else{
+						alert("otp发送失败，原因为" + data.data.errMsg);
+					}
+				},
+				fail:function(data){
+					alert("otp发送失败， 原因为" + data.responseText);
+				}
+			});
+			return false;
+		});
+
 		$("#register").on("click", function(){
 			let telephone = $("#telephone").val();
 			let password = $("#password").val();
