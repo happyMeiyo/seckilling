@@ -29,10 +29,10 @@ import java.time.format.DateTimeFormatter;
  */
 @Service
 public class OrderServiceImpl implements OrderService {
-    @Autowired
+    @Resource
     private ItemService itemService;
 
-    @Autowired
+    @Resource
     private UserService userService;
 
     @Resource
