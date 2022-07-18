@@ -72,7 +72,6 @@
 			var name = $("#name").val();
 			var otpCode = $("#otpCode").val();
 
-
 			if(telephone == null || telephone === ""){
 				alert("手机号不能为空");
 				return false;
@@ -110,6 +109,7 @@
 				success:function(data){
 					if(data.status === "success"){
 						alert("注册成功");
+						window.location.href="login.html";
 					}else{
 						alert("注册失败，原因为" + data.data.errMsg);
 					}

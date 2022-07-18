@@ -7,7 +7,9 @@ import com.miaosha.project.dataobject.ItemStockDO;
 import com.miaosha.project.error.BusinessException;
 import com.miaosha.project.error.EmBusinessError;
 import com.miaosha.project.service.ItemService;
+import com.miaosha.project.service.PromoService;
 import com.miaosha.project.service.model.ItemModel;
+import com.miaosha.project.service.model.PromoModel;
 import com.miaosha.project.validator.ValidationResult;
 import com.miaosha.project.validator.ValidatorImpl;
 import org.springframework.beans.BeanUtils;
@@ -34,6 +36,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Resource
     ItemStockDOMapper itemStockDOMapper;
+
+    @Autowired
+    private PromoService promoService;
 
     @Override
     @Transactional
@@ -81,6 +86,11 @@ public class ItemServiceImpl implements ItemService {
         ItemModel itemModel = new ItemModel();
         BeanUtils.copyProperties(itemDO, itemModel);
         itemModel.setStock(itemStockDO.getStock());
+
+        PromoModel promoModel = promoService.getPromoByItemId(id);
+        if(promoModel != null && promoModel.getStatus() !=3){
+            itemModel.setPromoModel(promoModel);
+        }
 
         return itemModel;
     }

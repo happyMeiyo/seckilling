@@ -1,6 +1,7 @@
 package com.miaosha.project.controller.viewObject;
 
 import lombok.Data;
+import org.joda.time.DateTime;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -28,4 +29,13 @@ public class ItemVO {
 
     //商品的销量
     private Integer sales;
+
+    //秒杀活动状态 1：未开始；2：进行中；0：无秒杀活动
+    private Integer promoStatus;
+
+    private BigDecimal promoPrice;
+
+    private Integer promoId;
+
+    private String startDate;
 }

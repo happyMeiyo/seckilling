@@ -29,6 +29,11 @@
 			<tbody id="container">
 			</tbody>
 		</table>
+
+		<div class="form-actions">
+			<button class="btn blue" id="create" type="submit">创建商品</button>
+		</div>
+
 	</div>
 </div>
 </body>
@@ -38,6 +43,10 @@
 	var g_itemList = [];
 
 	jQuery(document).ready(function () {
+		$("#create").on("click", function(){
+			window.location.href = "createitem.html";
+		});
+
 		$.ajax({
 			type: "GET",
 			url: "http://localhost:8090/item/list",

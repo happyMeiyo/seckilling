@@ -35,4 +35,8 @@ public class ItemModel {
 
     //商品的销量
     private Integer sales;
+
+    //使用聚合模型
+    private PromoModel promoModel;
+
 }

@@ -78,6 +78,12 @@
       <version>6.1.7.Final</version>
     </dependency>
 
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.10.3</version>
+    </dependency>
+
 
   </dependencies>
 
@@ -111,7 +117,7 @@
           </executions>
           <configuration>
             <verbose>true</verbose>
-            <overwrite>false</overwrite>
+            <overwrite>true</overwrite>
             <configurationFile>src/main/resources/mybatis-generator.xml</configurationFile>
           </configuration>
         </plugin>

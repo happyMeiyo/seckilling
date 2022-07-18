@@ -81,6 +81,7 @@
 				success:function(data){
 					if(data.status === "success"){
 						alert("创建商品成功");
+						window.location.href="listitem.html";
 					}else{
 						alert("创建商品失败，原因为" + data.data.errMsg);
 					}
