@@ -107,8 +107,8 @@ public class OrderServiceImpl implements OrderService {
         sequenceDO.setCurrentValue(current + sequenceDO.getStep());
         sequenceDOMapper.updateByPrimaryKeySelective(sequenceDO);
 
-        String sequenceStr = String.valueOf(current);
-        stringBuilder.append("0".repeat(Math.max(0, 6 - sequenceStr.length())));
+        String sequenceStr = String.format("%06d", current);
+//        stringBuilder.append("0".repeat(Math.max(0, 6 - sequenceStr.length())));
         stringBuilder.append(sequenceStr);
 
         stringBuilder.append("00");

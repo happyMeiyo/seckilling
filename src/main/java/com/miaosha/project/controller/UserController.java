@@ -39,12 +39,12 @@ public class UserController extends BaseController {
     public CommonReturnType getOtp(@RequestParam(name="telephone") String telephone){
         Random random = new Random();
         int randomInt = random.nextInt(99999) + 10000;
-        String optCode = String.valueOf(randomInt);
+        String optCode = String.format("%06d", randomInt);
 
         httpServletRequest.getSession().setAttribute(telephone, optCode);
 
         System.out.println("telephone = " + telephone + ", otpCode = " + optCode);
-        return CommonReturnType.create(null);
+        return CommonReturnType.create(optCode);
     }
 
     @PostMapping("/register")
