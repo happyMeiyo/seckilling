@@ -26,7 +26,7 @@ import java.util.Random;
  */
 
 @CrossOrigin(originPatterns = "*", allowCredentials = "true", allowedHeaders = "*")
-@Controller("user")
+@RestController("user")
 @RequestMapping(value = "/user")
 public class UserController extends BaseController {
 
@@ -36,9 +36,7 @@ public class UserController extends BaseController {
     @Resource
     private HttpServletRequest httpServletRequest;
 
-    @RequestMapping(value = "/getotp", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
-//    @PostMapping("/getotp")
-    @ResponseBody
+    @PostMapping(value = "/getotp", consumes = {CONTENT_TYPE_FORMED})
     public CommonReturnType getOtp(@RequestParam(name="telephone") String telephone){
         Random random = new Random();
         int randomInt = random.nextInt(99999) + 10000;
@@ -51,7 +49,6 @@ public class UserController extends BaseController {
     }
 
     @PostMapping("/register")
-    @ResponseBody
     @Transactional
     public CommonReturnType register(@RequestParam(name = "telephone") String telephone,
                                      @RequestParam(name = "otpCode") String otpCode,
@@ -82,7 +79,6 @@ public class UserController extends BaseController {
     }
 
     @PostMapping("/login")
-    @ResponseBody
     public CommonReturnType login(@RequestParam(name = "telephone") String telephone,
                                   @RequestParam(name = "password") String password) throws BusinessException, NoSuchAlgorithmException {
         if(StringUtils.isEmptyOrWhitespaceOnly(telephone) || StringUtils.isEmptyOrWhitespaceOnly(password)){
@@ -97,8 +93,7 @@ public class UserController extends BaseController {
         return CommonReturnType.create(null);
     }
 
-    @RequestMapping("/get")
-    @ResponseBody
+    @GetMapping("/get")
     public CommonReturnType getUser(@RequestParam(name = "id") Integer id) throws BusinessException{
         UserModel userModel = userService.getUserById(id);
         if (userModel == null){

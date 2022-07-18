@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  * Author: my.deng@tuya.com
  * Date: 2022/7/15 09:56
  */
-@Controller("order")
+@RestController("order")
 @CrossOrigin(originPatterns = "*", allowCredentials = "true", allowedHeaders = "*")
 @RequestMapping("/order")
 public class OrderController extends BaseController  {
@@ -28,7 +28,6 @@ public class OrderController extends BaseController  {
     private HttpServletRequest httpServletRequest;
 
     @PostMapping("/create")
-    @ResponseBody
     @Transactional
     public CommonReturnType createOrder(@RequestParam(name = "itemId") Integer itemId,
                                         @RequestParam(name = "amount") Integer amount,

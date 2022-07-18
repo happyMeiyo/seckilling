@@ -23,7 +23,7 @@ import static org.joda.time.format.DateTimeFormat.*;
  * Date: 2022/7/8 14:13
  */
 
-@Controller("item")
+@RestController("item")
 @CrossOrigin(originPatterns = "*", allowCredentials = "true", allowedHeaders = "*")
 @RequestMapping(value = "/item")
 public class ItemController extends BaseController{
@@ -54,7 +54,6 @@ public class ItemController extends BaseController{
     }
 
     @GetMapping("/get")
-    @ResponseBody
     public CommonReturnType getItem(@RequestParam(name = "id")Integer id){
         ItemModel itemModel = itemService.getItemById(id);
 
@@ -72,7 +71,6 @@ public class ItemController extends BaseController{
     }
 
     @GetMapping("/list")
-    @ResponseBody
     public CommonReturnType listItem(){
         List<ItemModel> itemModelList = itemService.listItem();
 
