@@ -110,6 +110,10 @@
 				alert("手机号不能为空");
 				return false;
 			}
+			if(otpCode == null || otpCode === ""){
+				alert("验证码不能为空");
+				return false;
+			}
 			if(name == null || name === ""){
 				alert("姓名不能为空");
 				return false;
@@ -118,14 +122,15 @@
 				alert("年龄不能为空");
 				return false;
 			}
+			if(gender == null || gender === ""){
+				alert("性别不能为空");
+				return false;
+			}
 			if(password == null || password === ""){
 				alert("密码不能为空");
 				return false;
 			}
-			if(otpCode == null || otpCode === ""){
-				alert("验证码不能为空");
-				return false;
-			}
+
 			$.ajax({
 				xhrFields: {withCredentials: true},
 				crossDomain: true,
