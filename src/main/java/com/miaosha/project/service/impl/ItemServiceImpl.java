@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class ItemServiceImpl implements ItemService {
-    @Autowired
+    @Resource
     private ValidatorImpl validator;
 
     @Resource
@@ -37,7 +37,7 @@ public class ItemServiceImpl implements ItemService {
     @Resource
     ItemStockDOMapper itemStockDOMapper;
 
-    @Autowired
+    @Resource
     private PromoService promoService;
 
     @Override

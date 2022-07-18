@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +28,7 @@ import static org.joda.time.format.DateTimeFormat.*;
 @RequestMapping(value = "/item")
 public class ItemController extends BaseController{
 
-    @Autowired
+    @Resource
     private ItemService itemService;
 
     @PostMapping("/create")

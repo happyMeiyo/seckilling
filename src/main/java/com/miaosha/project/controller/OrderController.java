@@ -6,11 +6,11 @@ import com.miaosha.project.response.CommonReturnType;
 import com.miaosha.project.service.OrderService;
 import com.miaosha.project.service.model.OrderModel;
 import com.miaosha.project.service.model.UserModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -21,10 +21,10 @@ import javax.servlet.http.HttpServletRequest;
 @CrossOrigin(originPatterns = "*", allowCredentials = "true", allowedHeaders = "*")
 @RequestMapping("/order")
 public class OrderController extends BaseController  {
-    @Autowired
+    @Resource
     private OrderService orderService;
 
-    @Autowired
+    @Resource
     private HttpServletRequest httpServletRequest;
 
     @PostMapping("/create")

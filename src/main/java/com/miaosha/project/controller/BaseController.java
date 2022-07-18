@@ -1,6 +1,5 @@
 package com.miaosha.project.controller;
 
-import com.alibaba.druid.sql.dialect.oracle.ast.stmt.OracleSelectJoin;
 import com.miaosha.project.error.BusinessException;
 import com.miaosha.project.error.EmBusinessError;
 import com.miaosha.project.response.CommonReturnType;

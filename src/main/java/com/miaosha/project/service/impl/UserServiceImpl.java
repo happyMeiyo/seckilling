@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserPasswordDOMapper userPasswordDOMapper;
 
-    @Autowired
+    @Resource
     private ValidatorImpl validator;
 
     @Override
@@ -52,12 +52,6 @@ public class UserServiceImpl implements UserService {
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
         }
 
-//        if(StringUtils.isEmpty(userModel.getName())
-//        || StringUtils.isEmpty(userModel.getTelephone())
-//        || userModel.getGender() == null
-//        || userModel.getAge() == null){
-//            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
-//        }
         ValidationResult validationResult = validator.validate(userModel);
         if (validationResult.isHasErrors()) {
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR,validationResult.getErrorMsg());

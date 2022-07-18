@@ -98,7 +98,7 @@
 		$("#imgUrl").attr("src",g_itemVO.imgUrl);
 		$("#sales").text(g_itemVO.sales);
 
-		if(g_itemVO.promoStatus == 1){
+		if(g_itemVO.promoStatus === 1){
 			 var startTime = g_itemVO.startDate.replace(new RegExp("-", "gm"), "/");
         	startTime = (new Date(startTime)).getTime();
         	var nowTime = Date.parse(new Date());
@@ -112,11 +112,15 @@
         	$("#promoPrice").text(g_itemVO.promoPrice);
         	$("#createorder").attr("disabled", true);
         }
-		else if(g_itemVO.promoStatus == 2){
+		else if(g_itemVO.promoStatus === 2){
 			$("#promoStartDate").text("秒杀活动进行中");
 			$("#promoPrice").text(g_itemVO.promoPrice);
 			$("#createorder").attr("disabled", false);
         	$("#normalPriceContainer").hide();
+		}
+		else if(g_itemVO.promoStatus === 0){
+			$("#createorder").attr("disabled", false);
+			$("#promoPriceContainer").hide();
 		}
 	}
 
