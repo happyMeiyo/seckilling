@@ -9,7 +9,6 @@ import com.miaosha.project.service.UserService;
 import com.miaosha.project.service.model.UserModel;
 import com.mysql.cj.util.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +35,7 @@ public class UserController extends BaseController {
     @Resource
     private HttpServletRequest httpServletRequest;
 
-    @PostMapping(value = "/getotp", consumes = {CONTENT_TYPE_FORMED})
+    @PostMapping("/getotp")
     public CommonReturnType getOtp(@RequestParam(name="telephone") String telephone){
         Random random = new Random();
         int randomInt = random.nextInt(99999) + 10000;

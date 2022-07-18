@@ -13,7 +13,6 @@ import com.miaosha.project.service.model.PromoModel;
 import com.miaosha.project.validator.ValidationResult;
 import com.miaosha.project.validator.ValidatorImpl;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -96,7 +95,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public boolean decreaseStock(Integer itemId, Integer amount) throws BusinessException {
+    public boolean decreaseStock(Integer itemId, Integer amount){
         int affectedRow = itemStockDOMapper.decreaseStock(itemId, amount);
         return affectedRow > 0;
     }

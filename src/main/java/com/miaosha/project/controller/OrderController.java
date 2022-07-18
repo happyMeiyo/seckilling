@@ -6,7 +6,6 @@ import com.miaosha.project.response.CommonReturnType;
 import com.miaosha.project.service.OrderService;
 import com.miaosha.project.service.model.OrderModel;
 import com.miaosha.project.service.model.UserModel;
-import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 

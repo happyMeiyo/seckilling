@@ -13,7 +13,6 @@ import com.miaosha.project.service.model.ItemModel;
 import com.miaosha.project.service.model.OrderModel;
 import com.miaosha.project.service.model.UserModel;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

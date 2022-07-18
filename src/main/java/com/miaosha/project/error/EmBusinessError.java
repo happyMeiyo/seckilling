@@ -16,7 +16,7 @@ public enum EmBusinessError implements CommonError {
     private final int errCode;
     private String errMsg;
 
-    private EmBusinessError(int errCode, String errMsg){
+    EmBusinessError(int errCode, String errMsg){
         this.errCode = errCode;
         this.errMsg = errMsg;
     }

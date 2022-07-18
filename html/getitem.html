@@ -74,6 +74,7 @@
 
 	<div class="form-actions">
 		<button class="btn blue" id="createorder" type="submit">下单</button>
+		<button class="btn green" id="listitem" type="submit" style="float: right">商品列表</button>
 	</div>
 
 </div>
@@ -125,6 +126,10 @@
 	}
 
 	jQuery(document).ready(function() {
+		$("#listitem").on("click", function(){
+			window.location.href = "listitem.html";
+		});
+
 		$("#createorder").on("click", function(){
 			$.ajax({
 				xhrFields: {withCredentials: true},

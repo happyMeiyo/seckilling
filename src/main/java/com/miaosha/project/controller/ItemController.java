@@ -6,8 +6,6 @@ import com.miaosha.project.response.CommonReturnType;
 import com.miaosha.project.service.ItemService;
 import com.miaosha.project.service.model.ItemModel;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 

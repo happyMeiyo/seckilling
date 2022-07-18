@@ -1,6 +1,5 @@
 package com.miaosha.project.validator;
 
-import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
@@ -15,7 +14,7 @@ public class ValidationResult {
     private boolean hasErrors = false;
     private Map<String, String> errorMsgMap = new HashMap<>();
 
-    public String getErrorMsg(){
+    public String getErrorMsg() {
         return StringUtils.join(errorMsgMap.values().toArray(), ",");
     }
 
