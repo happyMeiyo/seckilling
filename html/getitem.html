@@ -53,7 +53,7 @@
 
 	<div class="form-group">
 		<div>
-			<img style="width:200px; height: auto;" id="imgUrl" />
+			<img style="width:200px; height: auto;" id="imgUrl" alt="商品图片"/>
 		</div>
 	</div>
 	
@@ -79,7 +79,7 @@
 </div>
 </body>
 <script type="text/javascript">
-	var g_itemVO = {}
+	let g_itemVO = {}
 
 	function getParam(paramName) {
 		paramValue = "", isFound = !1;
@@ -99,10 +99,10 @@
 		$("#sales").text(g_itemVO.sales);
 
 		if(g_itemVO.promoStatus === 1){
-			 var startTime = g_itemVO.startDate.replace(new RegExp("-", "gm"), "/");
+			let startTime = g_itemVO.startDate.replace(new RegExp("-", "gm"), "/");
         	startTime = (new Date(startTime)).getTime();
-        	var nowTime = Date.parse(new Date());
-        	var delta = (startTime - nowTime) / 1000;
+			let nowTime = Date.parse(new Date());
+			let delta = (startTime - nowTime) / 1000;
         	if (delta <= 0) {
           	//活动已开始
           		g_itemVO.promoStatus = 2;

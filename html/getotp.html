@@ -29,7 +29,7 @@
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		$("#getotp").on("click", function(){
-			var telephone = $("#telephone").val();
+			let telephone = $("#telephone").val();
 			if(telephone == null || telephone === ""){
 				alert("手机号不能为空");
 				return false;

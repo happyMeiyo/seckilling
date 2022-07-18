@@ -40,7 +40,7 @@
 
 <script>
 	//定义全局商品数组信息
-	var g_itemList = [];
+	let g_itemList = [];
 
 	jQuery(document).ready(function () {
 		$("#create").on("click", function(){
@@ -67,9 +67,9 @@
 	});
 
 	function reloadDom() {
-		for (var i = 0; i < g_itemList.length; i++) {
-			var itemVO = g_itemList[i];
-			var dom = "<tr data-id = '" + itemVO.id + "' id='itemDetail" + itemVO.id + "'><td>" + itemVO.title + "</td><td><img style='width:100px;height:auto;' src='" + itemVO.imgUrl + "'/></td><td>" + itemVO.description + "</td><td>" + itemVO.price + "</td><td>" + itemVO.stock + "</td><td>" + itemVO.sales + "</td></tr>";
+		for (let i = 0; i < g_itemList.length; i++) {
+			let itemVO = g_itemList[i];
+			let dom = "<tr data-id = '" + itemVO.id + "' id='itemDetail" + itemVO.id + "'><td>" + itemVO.title + "</td><td><img alt='商品图片' style='width:100px;height:auto;' src='" + itemVO.imgUrl + "'/></td><td>" + itemVO.description + "</td><td>" + itemVO.price + "</td><td>" + itemVO.stock + "</td><td>" + itemVO.sales + "</td></tr>";
 			$("#container").append($(dom));
 			$("#itemDetail" + itemVO.id).on("click", function (e) {
 				window.location.href = "getitem.html?id=" + $(this).data("id");
